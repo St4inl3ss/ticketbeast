@@ -34,6 +34,7 @@ class ViewConcertListingTest extends CustomTestCase
 
         $response = $this->get('concerts/' . $concert->id);
         $this->checkResponse($response);
+        $this->checkResponse($response);
 
         $response->assertSee('caca moulu');
 //        $response->assertSee('with Animosity and Lethargy');
