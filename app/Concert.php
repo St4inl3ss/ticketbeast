@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Concert
  *
- * @method static Builder published()
+ * @method        static Builder published()
  * @property-read Carbon date
- * @property-read string ticket_price
+ * @property-read int ticket_price
  *
  * @package App
  */
