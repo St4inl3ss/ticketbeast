@@ -20,4 +20,16 @@ interface PaymentGateway
      * @return mixed
      */
     public function charge(int $amount, string $token);
+
+    /**
+     * @return string
+     */
+    public function getValidToken(): string;
+
+    /**
+     * @return int
+     */
+    public function totalCharges(): int;
+
+
 }

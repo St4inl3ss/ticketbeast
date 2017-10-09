@@ -10,7 +10,6 @@ namespace Tests\Unit;
 
 use App\Concert;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\CustomTestCase;
 use function factory;
@@ -70,13 +69,27 @@ class ConcertTest extends CustomTestCase
         $publishedConcertB = factory(Concert::class)->create(['published_at' => Carbon::parse('-1 week')]);
         $unpublishedConcert = factory(Concert::class)->create(['published_at' => null]);
 
-        /** @var Collection $publishedConcerts */
         $publishedConcerts = Concert::published()->get();
 
         self::assertTrue($publishedConcerts->contains($publishedConcertA));
         self::assertTrue($publishedConcerts->contains($publishedConcertB));
         self::assertFalse($publishedConcerts->contains($unpublishedConcert));
+    }
 
+    /**
+     * @test
+     */
+    public function can_order_concert_tickets()
+    {
 
+        /**
+         * @var Concert $concert
+         */
+        $concert = factory(Concert::class)->create();
+
+        $order = $concert->orderTickets('jane@example.com', 3);
+
+        self::assertEquals('jane@example.com', $order->email);
+        self::assertEquals(3, $order->tickets()->count());
     }
 }

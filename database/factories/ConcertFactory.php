@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Factory;
 
 /*
 |--------------------------------------------------------------------------
-| Model Factories
+| Models Factories
 |--------------------------------------------------------------------------
 |
 | This directory should contain each of the model factory definitions for

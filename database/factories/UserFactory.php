@@ -1,10 +1,11 @@
 <?php
 
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 /*
 |--------------------------------------------------------------------------
-| Model Factories
+| Models Factories
 |--------------------------------------------------------------------------
 |
 | This directory should contain each of the model factory definitions for
@@ -13,6 +14,9 @@ use Faker\Generator as Faker;
 |
 */
 
+/**
+ * @var Factory $factory
+ */
 $factory->define(App\User::class, function (Faker $faker) {
     static $password;
 
