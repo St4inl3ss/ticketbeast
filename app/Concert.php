@@ -73,7 +73,9 @@ class Concert extends Model
      */
     public function orderTickets(string $email, int $ticketQuantity): Order
     {
-        /** @var Order $order */
+        /**
+         * @var Order $order
+         */
         $order = $this->orders()->create(['email' => $email]);
 
         for ($i = 1; $i <= $ticketQuantity; $i++) {
